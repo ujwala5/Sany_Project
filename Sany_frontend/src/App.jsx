@@ -30,6 +30,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/addDealer" element={<ProtectedRoutes><AddDealers /></ProtectedRoutes>} />
           <Route path="/addModels" element={<ProtectedRoutes><AddModels /></ProtectedRoutes>} />
+          
 
 
 
