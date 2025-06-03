@@ -32,13 +32,13 @@ function AddCategory() {
       console.log("res==>>", res);
 
       if (res.code === 200) {
-        navigate('/');
+        navigate('/showCategories');
       }
     }
   })
 
   const handleCancel = async () => {
-    navigate('/')
+    navigate('/showCategories')
   }
 
   return (
@@ -52,7 +52,7 @@ function AddCategory() {
               <label htmlFor="categoryName" className="form-label">
                 Name
               </label>
-              <input  
+              <input
                 type="text"
                 name="categoryName"
                 className="form-control"

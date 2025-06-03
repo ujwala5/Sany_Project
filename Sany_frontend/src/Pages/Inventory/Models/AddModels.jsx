@@ -58,7 +58,7 @@ function AddModels() {
 
         if (response.code == 200) {
           toast.success("Model created successfully")
-          navigate('/')
+          navigate('/ShowModels')
         } else {
           toast.error("Something went wrong")
         }
@@ -71,7 +71,7 @@ function AddModels() {
   })
 
   const handleCancel = async () => {
-    navigate("/");
+    navigate("/ShowModels");
   }
 
   const fetchSubcategories = async () => {

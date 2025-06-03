@@ -37,7 +37,7 @@ function AddSubCategories() {
       const response = await result.json()
       console.log("response==", response);
       if (response.code === 200) {
-        navigate('/');
+        navigate('/ShowSubCategories');
       }
     },
 
@@ -62,7 +62,7 @@ function AddSubCategories() {
 
 
   const handleCancel = async () => {
-    navigate('/');
+    navigate('/ShowSubCategories');
   }
 
   return (

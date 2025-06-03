@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoMdArrowDropright } from 'react-icons/io';
+import '../../App.css'
 
 function Navbar() {
     return (
@@ -20,18 +21,12 @@ function Navbar() {
                                 Inventory
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Categories <IoMdArrowDropright /></a></li>
+                                <li><Link className="dropdown-item" to="/showCategories">Categories</Link></li>
                                 <li className="dropdown-submenu position-relative">
-                                    <a className="dropdown-item" href="#">Sub-Categories <IoMdArrowDropright /></a>
-                                    <ul className="dropdown-menu position-absolute start-100 top-0 mt-0">
-                                        <li><a className="dropdown-item" href="#">Categories</a></li>
-                                        <li><a className="dropdown-item" href="#">Sub-Categories</a></li>
-                                        <li><a className="dropdown-item" href="#">Models</a></li>
-                                        <li><a className="dropdown-item" href="#">Dealers</a></li>
-                                    </ul>
+                                    <Link className="dropdown-item" to="/subCategory">Sub-Categories </Link>
                                 </li>
-                                <li><a className="dropdown-item" href="#">Models <IoMdArrowDropright /></a></li>
-                                <li><a className="dropdown-item" href="#">Dealers <IoMdArrowDropright /></a></li>
+                                <li><Link className="dropdown-item" to="/addModels">Models </Link></li>
+                                <li><Link className="dropdown-item" to="/addDealer">Dealers </Link></li>
                             </ul>
                         </li>
 

@@ -73,7 +73,7 @@ function AddDealers() {
       console.log("res === >>", res);
       if (res.code === 200) {
         toast.success("Dealer created Successfully");
-        navigate("/")
+        navigate("/ShowDealers")
       } else {
         toast.error("Invalid Input");
       }
@@ -81,7 +81,7 @@ function AddDealers() {
   })
 
   const handleCancel = async () => {
-    navigate('/')
+    navigate('/ShowDealers')
   }
 
   return (
