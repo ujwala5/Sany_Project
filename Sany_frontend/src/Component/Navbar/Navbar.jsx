@@ -23,10 +23,10 @@ function Navbar() {
                             <ul className="dropdown-menu">
                                 <li><Link className="dropdown-item" to="/showCategories">Categories</Link></li>
                                 <li className="dropdown-submenu position-relative">
-                                    <Link className="dropdown-item" to="/subCategory">Sub-Categories </Link>
+                                    <Link className="dropdown-item" to="/ShowSubCategories">Sub-Categories </Link>
                                 </li>
-                                <li><Link className="dropdown-item" to="/addModels">Models </Link></li>
-                                <li><Link className="dropdown-item" to="/addDealer">Dealers </Link></li>
+                                <li><Link className="dropdown-item" to="/showModels">Models </Link></li>
+                                <li><Link className="dropdown-item" to="/showDealers">Dealers </Link></li>
                             </ul>
                         </li>
 

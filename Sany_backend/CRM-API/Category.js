@@ -19,6 +19,22 @@ router.get('/categories', async (req, res) => {
     });
 });
 
+router.get('/categories/:id', async (req, res) => {
+
+    let catId = req.params.id;
+
+    let query = "SELECT * FROM sany_prod_categories where catid = ?";
+    let values = [catId];
+    let showlist = await db.query(query, values);
+    console.log({ showlist });
+    res.send({
+        code: 200,
+        status: "SUCCESS",
+        type: 'text',
+        data: showlist[0]
+    });
+});
+
 
 router.post('/categories/create', jsonParser, async (req, res) => {
 
@@ -63,9 +79,10 @@ router.put('/categories/edit', jsonParser, async (req, res) => {
     let Categorystatus = req.body.Categorystatus;
     let Categoryid = req.query.Categoryid;
 
-    let query = "Update sany_prod_categories set catname = ?, catstatus = ? where catid = ?";
+    let query = "UPDATE sany_prod_categories SET catname = ?, catstatus = ? WHERE catid = ?";
     let updateresult = await db.query(query, [Categoryname, Categorystatus, Categoryid]);
-    console.log(updateresult);
+
+    console.log("updateresult==>", updateresult);
     res.send({
         code: 200,
         status: "SUCCESS",

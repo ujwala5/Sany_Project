@@ -47,6 +47,11 @@ function ShowSubCategories() {
         }
     }
 
+    const editSubCategory = async (subCatId, catName) => {
+        localStorage.setItem("catName", catName)
+        navigate(`/subCategory/edit/${subCatId}`);
+    }
+
     return (
         <div>
             <div className="container mt-4">
@@ -76,7 +81,7 @@ function ShowSubCategories() {
                                 <td>{item.subcatstatus}</td>
 
                                 <td>
-                                    <button className="btn btn-sm btn-primary me-2">Edit</button>
+                                    <button className="btn btn-sm btn-primary me-2" onClick={() => editSubCategory(item.subcatid, item.catname)}>Edit</button>
                                     <button className="btn btn-sm btn-danger" onClick={() => delSubCategory(item.subcatid)}>Delete</button>
                                 </td>
                             </tr>

@@ -19,6 +19,21 @@ router.get('/subcategories', async (req, res) => {
     });
 });
 
+router.get('/subCategory/:subCatId', async (req, res) => {
+    let subcatid = req.params.subCatId;
+    // console.log({ subcatid });
+    let query = "SELECT * FROM sany_prod_subcategories WHERE subcatid = ?";
+    let value = [subcatid];
+    let showlist_1 = await db.query(query, value);
+    // console.log({ showlist_1 });
+    res.send({
+        code: 200,
+        status: "SUCCESS",
+        type: 'text',
+        data: showlist_1[0]
+    });
+})
+
 router.post('/subcategories/create', jsonParser, async (req, res) => {
 
     let SubCategoryname = req.body.SubCategoryname;

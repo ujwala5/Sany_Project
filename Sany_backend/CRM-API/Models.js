@@ -18,6 +18,22 @@ router.get('/showmodels', async (req, res) => {
     });
 });
 
+router.get('/showModels/:id', async (req, res) => {
+    let modelId = req.params.id;
+    console.log({ modelId })
+    let query = "select * from sany_prod_models WHERE modelid=?";
+    let values = [modelId]
+    let showlist_2 = await db.query(query, values);
+    console.log({ showlist_2 });
+    res.send({
+        code: 200,
+        status: "SUCCESS",
+        type: 'text',
+        data: showlist_2[0]
+    });
+})
+
+
 router.post('/models/create', jsonParser, async (req, res) => {
 
     let Subcatname = req.body.Subcatname;

@@ -27,6 +27,11 @@ function ShowModels() {
         fetchModels();
     }, [])
 
+
+    const handleEdit = (modelId) => {
+        navigate(`/models/edit/${modelId}`);
+    }
+
     const delModel = async (modelId) => {
         try {
             const deletemodelApi = await fetch(`http://localhost:8991/V2/models/delete?Modelid=${modelId}`, {
@@ -79,7 +84,7 @@ function ShowModels() {
                                 <td>{item.mstatus}</td>
                                 <td>{item.subcatname}</td>
                                 <td>
-                                    <button className="btn btn-sm btn-primary me-2">Edit</button>
+                                    <button className="btn btn-sm btn-primary me-2" onClick={() => handleEdit(item.modelid)}>Edit</button>
                                     <button className="btn btn-sm btn-danger" onClick={() => delModel(item.modelid)}>Delete</button>
                                 </td>
                             </tr>

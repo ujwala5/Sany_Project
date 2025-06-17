@@ -52,6 +52,10 @@ function ShowCategories() {
         }
     }
 
+    const handleEdit = async (catId) => {
+        navigate(`/category/edit/${catId}`);
+    }
+
     return (
         <div className="container mt-4">
             <button type="button" className="btn btn-dark mb-3" onClick={handleClick}>
@@ -76,7 +80,7 @@ function ShowCategories() {
                             <td>{item.catstatus}</td>
                             <td>
                                 {/* Placeholder for future action buttons */}
-                                <button className="btn btn-sm btn-primary me-2">Edit</button>
+                                <button className="btn btn-sm btn-primary me-2" onClick={() => handleEdit(item.catid)}>Edit</button>
                                 <button className="btn btn-sm btn-danger" onClick={() => delCategory(item.catid)}>Delete</button>
                             </td>
                         </tr>

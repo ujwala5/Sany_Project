@@ -11,6 +11,10 @@ function ShowDealers() {
         Navigate('/addDealer')
     }
 
+    const handleEdit = async (dealerId) => {
+        Navigate(`/dealer/edit/${dealerId}`)
+    }
+
     const fetchDealers = async () => {
         const res = await fetch('http://localhost:8991/V2/showdealers',
             {
@@ -23,7 +27,7 @@ function ShowDealers() {
         );
 
         const result = await res.json();
-        console.log("result==>", result.data);
+        // console.log("result==>", result.data);
 
         setShowDealer(result.data)
     }
@@ -80,7 +84,7 @@ function ShowDealers() {
                             <td>{item.zipcode}</td>
                             <td>{item.mapaddr}</td>
                             <td>
-                                <button className="btn btn-sm btn-primary me-2">Edit</button>
+                                <button className="btn btn-sm btn-primary me-2" onClick={() => handleEdit(item.dealerid)}>Edit</button>
                                 <button className="btn btn-sm btn-danger" onClick={() => delDealer(item.dealerid)}>Delete</button>
                             </td>
                         </tr>

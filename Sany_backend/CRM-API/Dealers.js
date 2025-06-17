@@ -18,6 +18,20 @@ router.get('/showdealers', async (req, res) => {
     });
 });
 
+router.get('/showDealerById/:id', async (req, res) => {
+
+    let dealerId = req.params.id;
+    let query = "SELECT * FROM sany_dealers WHERE dealerid=?";
+    let showlist_3 = await db.query(query, [dealerId]);
+    console.log({ showlist_3 });
+    res.send({
+        code: 200,
+        status: "SUCCESS",
+        type: 'text',
+        data: showlist_3[0]
+    });
+})
+
 router.post('/dealers/create', jsonParser, async (req, res) => {
 
     // let Dealercode = req.query.Dealercode;
