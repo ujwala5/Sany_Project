@@ -18,6 +18,7 @@ import EditCategory from './Pages/Inventory/Categories/EditCategory';
 import Editdealers from './Pages/Inventory/Dealers/Editdealers';
 import EditModels from './Pages/Inventory/Models/EditModels';
 import EditSubCategory from './Pages/Inventory/SubCategories/EditSubCategory';
+import AppRoutes from './Routes/AppRoutes';
 
 function App() {
 
@@ -25,7 +26,9 @@ function App() {
     <>
       <ToastContainer position="top-right" autoClose={3000} />
 
-      <BrowserRouter>
+      <AppRoutes />
+
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
 
@@ -45,7 +48,7 @@ function App() {
           <Route path="/subCategory/edit/:subCatId" element={<ProtectedRoutes><EditSubCategory /></ProtectedRoutes>}></Route>
 
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
 
     </>
   )

@@ -54,21 +54,21 @@ function Login() {
 
   return (
 
-    <div className="container-extra-properties">
-      <div className="container">
-        <div className="heading">Sign In</div>
-        <form action="" className="form" onSubmit={formik.handleSubmit}>
-          <input className="input" type="email" name="email" id="email" placeholder="E-mail" value={formik.values.email} onChange={formik.handleChange} error={formik.touched.email && formik.errors.email}
-          />
-          <input className="input" type="password" name="password" id="password" placeholder="Password" value={formik.values.password} onChange={formik.handleChange} error={formik.touched.password && formik.errors.password} />
+    // <div className="container-extra-properties">
+    <div className="container">
+      <div className="heading">Sign In</div>
+      <form action="" className="form" onSubmit={formik.handleSubmit}>
+        <input className="input" type="email" name="email" id="email" placeholder="E-mail" value={formik.values.email} onChange={formik.handleChange} error={formik.touched.email && formik.errors.email}
+        />
+        <input className="input" type="password" name="password" id="password" placeholder="Password" value={formik.values.password} onChange={formik.handleChange} error={formik.touched.password && formik.errors.password} />
 
-          <span className="forgot-password"><a href="#">Forgot Password ?</a></span>
-          <input className="login-button" type="submit" value="Sign In" />
+        <span className="forgot-password"><a href="#">Forgot Password ?</a></span>
+        <input className="login-button" type="submit" value="Sign In" />
 
-        </form>
-        <span className="agreement"><a href="#">Learn user licence agreement</a></span>
-      </div>
+      </form>
+      <span className="agreement"><a href="#">Learn user licence agreement</a></span>
     </div>
+    // </div>
 
   )
 }
