@@ -15,7 +15,8 @@ let Models = require('./CRM-API/Models');
 let Dealers = require('./CRM-API/Dealers');
 let Customer = require('./CRM-API/Customers');
 let Login = require('./CRM-API/Login');
-let Register = require('./CRM-API/Register')
+let Register = require('./CRM-API/Register');
+let Count = require('./CRM-API/TableCount')
 
 app.use('/v2', Checkwanum);
 app.use('/v2', Categorylist);
@@ -25,6 +26,7 @@ app.use('/v2', Dealers);
 app.use('/v2', Customer);
 app.use('/v2', Login);
 app.use('/V2', Register);
+app.use('/V2', Count)
 
 
 app.use(bodyParser.urlencoded({

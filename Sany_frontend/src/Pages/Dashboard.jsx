@@ -1,33 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaThLarge, FaListUl, FaTh, FaUserCog } from 'react-icons/fa';
 
 const DashboardCards = () => {
+
+    const [category, setCategory] = useState(0);
+    const [subCategory, setSubCategory] = useState(0);
+    const [model, setModel] = useState(0);
+    const [dealer, setDealer] = useState(0);
+
     const cards = [
         {
             title: 'Categories',
-            count: 0,
+            count: category,
             icon: <FaThLarge size={30} color="cyan" />,
             borderColor: 'border-info',
         },
         {
             title: 'Sub-Categories',
-            count: 0,
+            count: subCategory,
             icon: <FaListUl size={30} color="red" />,
             borderColor: 'border-danger',
         },
         {
             title: 'Models',
-            count: 0,
+            count: model,
             icon: <FaTh size={30} color="green" />,
             borderColor: 'border-success',
         },
         {
             title: 'Dealers',
-            count: 0,
+            count: dealer,
             icon: <FaUserCog size={30} color="orange" />,
             borderColor: 'border-warning',
         },
     ];
+
+
+    const fetchTableCount = async () => {
+        const res = await fetch('http://localhost:8991/V2/tableCount', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+
+        const response = await res.json();
+        console.log("table Count ==>", response);
+        setCategory(response.data.sany_prod_categories);
+        setSubCategory(response.data.sany_prod_subcategories);
+        setModel(response.data.sany_prod_models);
+        setDealer(response.data.sany_dealers);
+
+
+
+
+    }
+
+    useEffect(() => {
+        fetchTableCount()
+    }, [])
+
 
     return (
         <div className="container mt-5">
